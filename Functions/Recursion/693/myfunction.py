@@ -4,8 +4,6 @@ def recursion(a, b):
     if a > 0 and b > 0:
 
         # (3, 2) = 5
-        # 0 . 2 3 . .
-        #           5
         if abs(a) > abs(b): 
             if  b == 1:
                 return a+1
@@ -13,21 +11,16 @@ def recursion(a, b):
                 return recursion(a+1, b-1)
 
         # (2, 3) = 5
-        # 0 . 2 3 . .
-        #           5
         if abs(a) <= abs(b):            
-            if  a == 1:
-                return b+1
-            else:
-                return recursion(a-1, b+1)
+            a, b = b, a
+            print("Swapp")
+            return recursion(a, b)
 
 
     # (-, -)
     if a < 0 and b < 0:
 
         # (-3, -2) = -5
-        #  . . -3 -2 . 0 
-        # -5
         if abs(a) >= abs(b): 
             if  b == -1:
                 return a-1
@@ -35,55 +28,43 @@ def recursion(a, b):
                 return recursion(a-1, b+1)
 
         # (-2, -3) = -5
-        #  . . -3 -2 . 0 
-        # -5
         if abs(a) < abs(b):
-            if  a == -1:
-                return b-1
-            else:
-                return recursion(a+1, b-1)
+            a, b = b, a
+            print("Swapp")
+            return recursion(a, b)
   
     # (-, +)
     if a < 0 and b > 0:
 
         # (-5, 2) = -3
-        # -5 . . . . 0 . 2
-        #     -3
         if abs(a) > abs(b):
             if  b == 1:
                 return a+1
             else:
                 return recursion(a+1, b-1)
+                
         
         # (-2, 5) = 3
-        # -2 . 0 . . . . 5
-        #            3
         if abs(a) < abs(b):
             if  a == -1:
                 return b-1
             else:
                 return recursion(a+1, b-1)
 
-    # перше додатнє, a друге від'ємне (+, -)
+    # (+, -)
     if a > 0 and b < 0:
 
         # (5, -2) = 3
-        # -2 . 0 . . . . 5
-        #            3
         if abs(a) > abs(b):
-            if b == -1:
-                return a-1
-            else:
-                return recursion(a-1, b+1)
+            a, b = b, a
+            print("Swapp")
+            return recursion(a, b)
 
         # (2, -5) = -3
-        # -5 . . . . 0 . 2
-        #     -3
         if abs(a) < abs(b):
-            if a == 1:
-                return b+1
-            else:
-                return recursion(a-1, b+1)
+            a, b = b, a
+            print("Swapp")
+            return recursion(a, b)
 
     # (0, 7) = 7
     if a == 0:
@@ -95,10 +76,9 @@ def recursion(a, b):
 
 
 
-x = int(input("x: "))
-y = int(input("y: "))        
+# x = int(input("x: "))
+# y = int(input("y: "))        
 
-res = recursion(x, y)
-print(res)
-
+# res = recursion(x, y)
+# print(res)
 
