@@ -1,8 +1,14 @@
-
 def add_function(a, b):
-
+    """The function calculates the sum of two integers.
+    It uses a nested recursive function. Last one uses
+    only following arithmetic operations: adding 1 or subtracting 1.
+    """
     def add_recursion(x, y):
-
+        """Nested recursive function.
+        To optimize the recursion depth,
+        the second operand must be absolutely
+        smaller than or equal the first one.
+        """
         # chek only second operand
         if y > 0:
             return add_recursion(x, y-1) + 1
@@ -18,30 +24,3 @@ def add_function(a, b):
     else:
         a, b = b, a
         return add_recursion(a, b)
-
-
-
-add_function_test_values = {
-    (+0, +7): +7,
-    (+7, +0): +7,
-    (+2, +2): +4,
-    (+3, +2): +5,
-    (+2, +3): +5,
-    (-3, -2): -5,
-    (-2, -3): -5,
-    (-2, -2): -4,
-    (-5, +2): -3,
-    (-2, +5): +3,
-    (+5, -2): +3,
-    (2, -5): -3,
-}
-
-for arguments, check_value in add_function_test_values.items():
-
-    result = add_function(*arguments)
-
-    if result == check_value:
-        print(f"OK! {arguments} = {result}.\n")
-
-    else:
-        print(f"WRONG! {arguments} = {result}. Must be {check_value}!\n")
