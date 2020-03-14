@@ -1,3 +1,6 @@
+from mydecorator import decorator_stopwatch
+
+# @decorator_stopwatch
 def add_function(a, b):
     """The function calculates the sum of two integers.
     It uses a nested recursive function. Last one uses
